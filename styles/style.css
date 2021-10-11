@@ -1,0 +1,29 @@
+/* ========== Global ======= */
+* {
+  box-sizing: boder-box;
+}
+
+:root {
+}
+
+body {
+  background-color: rgb(204, 204, 204);
+  font-family: "Poppins", sans-serif;
+}
+
+/* ========== Header ======= */
+header {
+  text-align: center;
+  padding: 2rem 0 6rem;
+  font-size: 1.5rem;
+  background-color: #2d4a22;
+}
+
+.logo {
+  color: #fff;
+  font-weight: 100;
+}
+/* ========== Balencer ======= */
+
+
+
