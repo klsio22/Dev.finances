@@ -4,26 +4,33 @@
 }
 
 :root {
+  --color-primary: #fff;
+  --dark-green:#363f5f;
 }
 
 body {
-  background-color: rgb(204, 204, 204);
+  background-color:#E5E5E5;
   font-family: "Poppins", sans-serif;
 }
 
 /* ========== Header ======= */
 header {
   text-align: center;
-  padding: 2rem 0 6rem;
+  padding: 2rem 0 10rem;
   font-size: 1.5rem;
   background-color: #2d4a22;
 }
 
-.logo {
-  color: #fff;
-  font-weight: 100;
+
+h2{
+  margin-top: 3.2rem;
+  margin-bottom: 0.8rem;
+  color: var(--dark-green);
 }
 /* ========== Balencer ======= */
 
+/* ========== Footer ======= */
 
-
+footer {
+  text-align: center;
+}

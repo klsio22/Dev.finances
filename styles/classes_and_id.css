@@ -1,0 +1,29 @@
+#logo {
+  color: var(--color-primary);
+  font-weight: 100;
+}
+
+.container {
+  width: min(90vw, 800px);
+
+  margin: auto;
+}
+
+/* ========== Balencer ======= */
+
+#balance {
+  margin-top: -8rem;
+}
+
+#balance h2 {
+  color: var(--color-primary);
+}
+/* ========== Cards ======= */
+
+.card {
+  background: var(--color-primary);
+  padding: 1.5rem 2rem;
+  border-radius:0.25rem;
+  
+  margin-bottom: 2rem;
+}
