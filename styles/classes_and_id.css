@@ -4,6 +4,18 @@
 }
 
 /* ========== Balencer ======= */
+/*Desaparecer elemento da tela e fazer com que o buscador consiga ler*/
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
 
 #balance {
   margin-top: -8rem;
@@ -24,6 +36,10 @@
 
 .card h3 {
   font-size: 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
 }
 
 .card p {
@@ -32,16 +48,23 @@
 }
 
 .card.total {
-  background: #49aa26;
+  background: var(--dark-green);
   color: var(--color-primary);
 }
+
+/* ========== Links  & button ======= */
+.button.new{
+  display: inline-block;
+  margin-bottom: .8rem;
+}
+
 
 /* ========== Table ======= */
 
 #date-table {
+  display: block;
   width: 100%;
   border-spacing: 0 0.5rem;
   color: #969cb3;
+  overflow: auto;
 }
-
-
