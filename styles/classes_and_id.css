@@ -1,12 +1,6 @@
+/* ========== Top ======= */
 #logo {
   color: var(--color-primary);
-  font-weight: 100;
-}
-
-.container {
-  width: min(90vw, 800px);
-
-  margin: auto;
 }
 
 /* ========== Balencer ======= */
@@ -23,7 +17,31 @@
 .card {
   background: var(--color-primary);
   padding: 1.5rem 2rem;
-  border-radius:0.25rem;
-  
+  border-radius: 0.25rem;
+
   margin-bottom: 2rem;
 }
+
+.card h3 {
+  font-size: 1rem;
+}
+
+.card p {
+  font-size: 2rem;
+  line-height: 3rem;
+}
+
+.card.total {
+  background: #49aa26;
+  color: var(--color-primary);
+}
+
+/* ========== Table ======= */
+
+#date-table {
+  width: 100%;
+  border-spacing: 0 0.5rem;
+  color: #969cb3;
+}
+
+

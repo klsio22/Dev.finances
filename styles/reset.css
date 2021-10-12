@@ -43,6 +43,6 @@ q:before, q:after {
 	content: none;
 }
 table {
-	border-collapse: collapse;
+	border-collapse: inherit;
 	border-spacing: 0;
 }
