@@ -2,11 +2,6 @@
   <img alt="dev.finances" title="dev.finances" src=".github/logo.svg" width="220px" />
 </h1>
 
-
-
-</p>Projeto desenvolvido acompanhando pela Rocketset, criando funcionalidades próprias e adaptativas</p>
-
-
 <p align="center">
   <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
@@ -47,5 +42,4 @@ Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para
 
 ---
 
-Feito com ♥ by Rocketseat :wave: [Participe da nossa comunidade!](https://discordapp.com/invite/gCRAFhc)
-
+💪✍️Projeto desenvolvido acompanhando pela Rocketset, criando funcionalidades próprias e adaptativas💪✍️

@@ -23,15 +23,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const Transaction = {
     incomes() {
+      let income = 0;
+      transactions.forEach((transactions) => {
+        transactions.amount > 0 ? income += transactions.amount : 0;
+      })
 
+      income = income.toLocaleString('pt-Br', {
+        style: 'currency',
+        currency: 'BRL',
+      })
+
+
+      return income;
     },
 
     expenses() {
-
+      return "Aqui"
     },
 
     total() {
-
+      return "Totol"
     }
   };
   const DOM = {
@@ -62,10 +73,27 @@ document.addEventListener('DOMContentLoaded', () => {
       `;
 
       return html;
-    }
+    },
+
+    updateBalencer(){
+      document
+      .getElementById('incomeDisplay')
+      .innerHTML = Transaction.incomes()
+
+      document
+      .getElementById('expenseDisplay')
+      .innerHTML = Transaction.expenses()
+
+      document
+      .getElementById('totalDisplay')
+      .innerHTML = Transaction.total()
+    },
+
+
+ 
 
   }
-
+  
   const Util = {
     formatCurrency(value) {
       const signal = Number(value) < 0 ? "-" : "";
@@ -88,4 +116,8 @@ document.addEventListener('DOMContentLoaded', () => {
     DOM.addTrasaction(transactions)
     //console.log(transactions)
   })
+
+
+  console.log(DOM.updateBalencer())
+
 });
