@@ -4,8 +4,8 @@
   --color-primary: #fff;
   --dark-blue: #363f5f;
   --dark-green: #49aa26;
-  --light-green:#3dd705;
-  --red:#e92929;
+  --light-green: #3dd705;
+  --red: #e92929;
 }
 * {
   box-sizing: border-box;
@@ -23,7 +23,7 @@ body {
 
 header {
   text-align: center;
-  padding: 2rem 0 10rem;
+  padding: 2rem 0 12rem;
   font-size: 1.5rem;
   background-color: #2d4a22;
 }
@@ -56,13 +56,15 @@ button {
   cursor: pointer;
 }
 
-button:hover{
-  background-color:var(--light-green) ;
+button:hover {
+  background-color: var(--light-green);
 }
 
 main {
   width: min(90vw, 800px);
   margin: auto;
+
+  padding: 1.5rem 0;
 }
 
 input {

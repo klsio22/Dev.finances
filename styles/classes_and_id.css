@@ -58,8 +58,7 @@
   margin-bottom: 0.8rem;
 }
 
-
-.button.cancel{
+.button.cancel {
   color: var(--red);
   border: 2px var(--red) solid;
   border-radius: 0.25rem;
@@ -70,8 +69,8 @@
   justify-content: center;
 }
 
-.button.cancel:{
-  
+.button.cancel:hover {
+  opacity: 1;
 }
 
 /* ========== Table ======= */
@@ -111,7 +110,7 @@
 .modal {
   background: #f0f2f5;
   padding: 2.4rem;
-
+  width: 95%;
   position: relative;
   z-index: 1;
 }
