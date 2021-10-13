@@ -58,6 +58,22 @@
   margin-bottom: 0.8rem;
 }
 
+
+.button.cancel{
+  color: var(--red);
+  border: 2px var(--red) solid;
+  border-radius: 0.25rem;
+
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button.cancel:{
+  
+}
+
 /* ========== Table ======= */
 
 #transition {
@@ -87,15 +103,44 @@
   visibility: hidden;
 }
 
-
-  .modal-overlay.active {
-    opacity: 1;
-    visibility: visible;
-  } 
-
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
 
 .modal {
   background: #f0f2f5;
   padding: 2.4rem;
-  
+
+  position: relative;
+  z-index: 1;
+}
+
+/* ========== Form ======= */
+
+#form {
+  max-width: 500px;
+}
+
+#form h2 {
+  margin-top: 0;
+}
+
+.input-group {
+  margin-top: 0.8rem;
+}
+
+.input-group .help {
+  opacity: 0.4;
+}
+
+.input-group.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input-group.actions .button,
+.input-group.actions button {
+  width: 48%;
 }
