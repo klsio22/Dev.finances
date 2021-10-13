@@ -8,11 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
     open() {
       //Abrir modal
       //Adicinar a classe active ao modal
-
       open.onclick = () => {
         model.classList.add('active');
       }
-
     },
 
     close() {
@@ -26,6 +24,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
   Modal.open();
   Modal.close();
-
 
 })
