@@ -5,24 +5,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const open = document.querySelector('.new')
 
   const Modal = {
-    open() {
+    openAndClose() {
       //Abrir modal
       //Adicinar a classe active ao modal
       open.onclick = () => {
-        model.classList.add('active');
+        model.classList.toggle('active');
+      }
+      cancel.onclick = () => {
+        model.classList.toggle('active');
       }
     },
 
-    close() {
-      //Fechar o modal
-      //Remover a classe active do modal
-      cancel.onclick = () => {
-        model.classList.remove('active');
-      }
-    }
   }
 
-  Modal.open();
-  Modal.close();
+  Modal.openAndClose();
+
 
 })

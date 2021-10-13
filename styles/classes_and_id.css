@@ -110,9 +110,9 @@
 .modal {
   background: #f0f2f5;
   padding: 2.4rem;
-  width: 95%;
   position: relative;
   z-index: 1;
+  max-width: 90%;
 }
 
 /* ========== Form ======= */
