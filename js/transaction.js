@@ -1,31 +1,42 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  const transactions = [{
-      id: 1,
-      description: "Luz",
-      amount: 100000,
-      date: '23/02/2021'
-    },
-    {
-      id: 2,
-      description: "Criação website",
-      amount: -50000,
-      date: '23/02/2021'
-    },
-    {
-      id: 3,
-      description: "Internet",
-      amount: -15000,
-      date: '23/02/2021'
-    },
-  ];
   //Adiciona as transações
   const Transaction = {
-    all: transactions,
+    all: [{
+        description: "Luz",
+        amount: 100000,
+        date: '23/02/2021'
+      },
+
+      {
+
+        description: "Criação website",
+        amount: -50000,
+        date: '23/02/2021'
+      },
+
+
+      {
+        description: "Conta de Água",
+        amount: -50000,
+        date: '23/02/2021'
+      },
+
+      {
+        description: "Internet",
+        amount: -15000,
+        date: '23/02/2021'
+      },
+    ],
 
     add(transaction) {
       Transaction.all.push(transaction);
 
+      APP.reload();
+    },
+
+    remove(index) {
+      Transaction.all.splice(index, 1);
       APP.reload();
     },
 
@@ -42,7 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
       Transaction.all.forEach((transactions) => {
         transactions.amount < 0 ? expense += transactions.amount : 0;
       })
-      console.log(expense)
       return expense
     },
 
@@ -50,6 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return Transaction.incomes() + Transaction.expenses();
     }
   };
+
   //O DOM cria e da os comportamentos aos elementes que iram aparecer na tela
   const DOM = {
 
@@ -101,6 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
   }
+
   //Util.formatCurrency formata o valor do número para o formado da moeda Brasileira 
   const Util = {
     formatCurrency(value) {
@@ -116,6 +128,27 @@ document.addEventListener('DOMContentLoaded', () => {
       return signal + value;
     }
   }
+
+
+
+  const Form = {
+    
+    submit() {
+
+      const logSubmit = () =>{
+        log.textContent = `Form Submitted!`;
+      }
+
+      const form = document.getElementById('form');
+
+      const log = document.getElementById('log');
+
+      form.addEventListener('submit', logSubmit )
+   
+    }
+  }
+
+
 
   //Executa e faz a releitura das principais funcionalidades do app
   const APP = {
@@ -133,15 +166,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  Form.submit();
 
   APP.init();
 
-
-/*   Transaction.add({
-    id: 39,
-    description: "Conta de Água",
-    amount: 20000,
-    date: '23/02/2021'
-  })
- */
 });

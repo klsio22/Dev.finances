@@ -17,6 +17,7 @@
 
    <script src="./js/openAndClose.js"></script>
    <script src="./js/transaction.js"></script>
+   <script src="./js/main.js"></script>
 
    <title>Dev.Finace$</title>
 </head>
@@ -84,7 +85,7 @@
       <div class="modal">
          <div id="form">
             <h2>Nova Transação</h2>
-            <form action="#">
+            <form action="" id="form">
                <div class="input-group">
                   <label for="description" class="sr-only">Valor</label>
                   <input type="text" id="description" name="description" placeholder="Descrição" value="" />
@@ -106,16 +107,17 @@
 
                <div class="input-group actions">
                   <a href="#" class="button cancel">Cancelar</a>
-                  <button>Salvar</button>
+                  <button type="submit">Salvar</button>
                </div>
 
 
             </form>
+            
 
          </div>
       </div>
    </div>
-
+   <p id="log"></p>
    <footer>
       <p>dev.finace$</p>
    </footer>
