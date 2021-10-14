@@ -115,6 +115,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //Util.formatCurrency formata o valor do número para o formado da moeda Brasileira 
   const Util = {
+    formatAmount(value) {
+      
+      value = Number(value) * 100
+      return value
+    },
+
+    formatDate(date){
+      const splitteDate = date.split('-')
+      //return `${splitteDate[]} `;
+      console.log(splitteDate)
+    },
+
     formatCurrency(value) {
       const signal = Number(value) < 0 ? "-" : "";
       value = String(value).replace(/\D/g, "");
@@ -129,36 +141,75 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-
-
   const Form = {
-    formatData(){
-      
+    onSubmit: document.querySelector('#form'),
+    description: document.querySelector('input#description'),
+    amount: document.querySelector('input#amount'),
+    date: document.querySelector('input#date'),
+
+    getValues() {
+      return {
+        description: Form.description.value,
+        amount: Form.amount.value,
+        date: Form.date.value,
+      }
     },
 
-    validateFields(){
-      console.log('Validar os campos')
+    validateFields() {
+      const {
+        description,
+        amount,
+        date
+      } = Form.getValues();
+
+      if (description.trim() === "" ||
+        amount.trim() === "" ||
+        date.trim() === "") {
+        throw new Error("Por favor , preencha todos os campos")
+      }
+
+      //console.log(description)
+      //console.log('Validar os campos')
+    },
+
+    formatValues() {
+      let {
+        description,
+        amount,
+        date
+      } = Form.getValues();
+
+       amount = Util.formatAmount(amount);
+       date = Util.formatDate(date)
+
+    },
+
+    logSubmit(event) {
+      event.preventDefault();
+
+      try {
+
+        //Form.validateFields();
+        //Formar os dados para salvar
+        Form.formatValues();
+        //salvar
+        //apagar os dados do fomulario
+        //modal fache
+        //Atualizar aplicação
+
+
+      } catch (error) {
+        alert(error.message)
+      }
+
+      //console.log(event)
     },
 
     submit() {
-
-      const logSubmit = (event) =>{
-       // log.textContent = `Form Submitted!`;
-        event.preventDefault();
-        Form.validateFields();
-      //  console.log(event)
-      }
-
-      const form = document.getElementById('form');
-
-    //  const log = document.getElementById('log');
-
-      form.addEventListener('submit', logSubmit )
-   
+      //https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/submit_event
+      Form.onSubmit.addEventListener('submit', Form.logSubmit)
     }
   }
-
-
 
   //Executa e faz a releitura das principais funcionalidades do app
   const APP = {
