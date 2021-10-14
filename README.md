@@ -46,4 +46,4 @@ https://klsio22.github.io/Dev.finances/
 
 ---
 
-💪✍️Projeto desenvolvido acompanhando pela Rocketset, criando funcionalidades próprias e adaptativas💪✍️
+💪✍️ Projeto desenvolvido acompanhando pela Rocketset, criando funcionalidades próprias e adaptativas 💪✍️

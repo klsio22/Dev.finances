@@ -132,16 +132,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   const Form = {
-    
+    formatData(){
+      
+    },
+
+    validateFields(){
+      console.log('Validar os campos')
+    },
+
     submit() {
 
-      const logSubmit = () =>{
-        log.textContent = `Form Submitted!`;
+      const logSubmit = (event) =>{
+       // log.textContent = `Form Submitted!`;
+        event.preventDefault();
+        Form.validateFields();
+      //  console.log(event)
       }
 
       const form = document.getElementById('form');
 
-      const log = document.getElementById('log');
+    //  const log = document.getElementById('log');
 
       form.addEventListener('submit', logSubmit )
    
