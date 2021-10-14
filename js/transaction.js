@@ -3,48 +3,54 @@ document.addEventListener('DOMContentLoaded', () => {
   const transactions = [{
       id: 1,
       description: "Luz",
-      amount: -50010,
+      amount: 100000,
       date: '23/02/2021'
     },
     {
       id: 2,
       description: "Criação website",
-      amount: 500012,
+      amount: -50000,
       date: '23/02/2021'
     },
     {
       id: 3,
       description: "Internet",
-      amount: -20000,
+      amount: -15000,
       date: '23/02/2021'
     },
   ];
-
-
+  //Adiciona as transações
   const Transaction = {
+    all: transactions,
+
+    add(transaction) {
+      Transaction.all.push(transaction);
+
+      APP.reload();
+    },
+
     incomes() {
       let income = 0;
-      transactions.forEach((transactions) => {
+      Transaction.all.forEach((transactions) => {
         transactions.amount > 0 ? income += transactions.amount : 0;
       })
-
-      income = income.toLocaleString('pt-Br', {
-        style: 'currency',
-        currency: 'BRL',
-      })
-
-
       return income;
     },
 
     expenses() {
-      return "Aqui"
+      let expense = 0;
+      Transaction.all.forEach((transactions) => {
+        transactions.amount < 0 ? expense += transactions.amount : 0;
+      })
+      console.log(expense)
+      return expense
     },
 
     total() {
-      return "Totol"
+      return Transaction.incomes() + Transaction.expenses();
     }
   };
+  //O DOM cria e da os comportamentos aos elementes que iram aparecer na tela
   const DOM = {
 
     transactionsContainer: document.querySelector('#date-table tbody'),
@@ -74,26 +80,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
       return html;
     },
-
-    updateBalencer(){
+    //Executa e formata as operações da balança dos valores
+    updateBalencer() {
       document
-      .getElementById('incomeDisplay')
-      .innerHTML = Transaction.incomes()
-
-      document
-      .getElementById('expenseDisplay')
-      .innerHTML = Transaction.expenses()
+        .getElementById('incomeDisplay')
+        .innerHTML = Util.formatCurrency(Transaction.incomes())
 
       document
-      .getElementById('totalDisplay')
-      .innerHTML = Transaction.total()
+        .getElementById('expenseDisplay')
+        .innerHTML = Util.formatCurrency(Transaction.expenses())
+
+      document
+        .getElementById('totalDisplay')
+        .innerHTML = Util.formatCurrency(Transaction.total())
     },
 
 
- 
+    clearTransctions() {
+      DOM.transactionsContainer.innerHTML = "";
+    }
 
   }
-  
+  //Util.formatCurrency formata o valor do número para o formado da moeda Brasileira 
   const Util = {
     formatCurrency(value) {
       const signal = Number(value) < 0 ? "-" : "";
@@ -109,15 +117,31 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  //Executa e faz a releitura das principais funcionalidades do app
+  const APP = {
+    init() {
+      DOM.updateBalencer();
 
-  //*DOM.addTrasaction(transactions[0])
+      Transaction.all.forEach((transactions) => {
+        DOM.addTrasaction(transactions)
+        //console.log(transactions)
+      })
+    },
+    reload() {
+      DOM.clearTransctions();
+      APP.init();
+    }
+  }
 
-  transactions.forEach((transactions) => {
-    DOM.addTrasaction(transactions)
-    //console.log(transactions)
+
+  APP.init();
+
+
+/*   Transaction.add({
+    id: 39,
+    description: "Conta de Água",
+    amount: 20000,
+    date: '23/02/2021'
   })
-
-
-  console.log(DOM.updateBalencer())
-
+ */
 });
