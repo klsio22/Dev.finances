@@ -1,30 +1,33 @@
+const modal = document.querySelector('.modal-overlay');
+const cancel = document.querySelector('.cancel');
+const open = document.querySelector('.new');
+
 const Modal = {
-  modal: document.querySelector('.modal-overlay'),
-  cancel: document.querySelector('.cancel'),
-  open: document.querySelector('.new'),
 
-  getClose() {
-    return Modal.cancel.onclick = () => {
-      Modal.modal.classList.toggle('active');
+  //Abrir modal
+  //Adicinar a classe active ao modal
+  open() {
+    open.onclick = () => {
+      modal.classList.toggle('active');
     }
-    ;
   },
 
-  openAndClose() {
-    //Abrir modal
-    //Adicinar a classe active ao modal
-    Modal.open.onclick = () => {
-      Modal.modal.classList.toggle('active');
-    }
-    
-    Modal.cancel.onclick = () => {
-      Modal.modal.classList.toggle('active');
+  close() {
+    cancel.onclick = () => {
+      modal.classList.toggle('active');
     }
   },
+  salveAndClose() {
+    modal.classList.toggle('active')
+  },
+
+  execute() {
+    Modal.open();
+    Modal.close();
+  }
 
 }
-
-Modal.openAndClose();
+Modal.execute();
 
 export {
   Modal

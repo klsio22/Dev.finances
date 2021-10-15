@@ -173,6 +173,7 @@ const Form = {
 
     //console.log(description)
     //console.log('Validar os campos')
+    //console.log(Form.getValues())
   },
 
   formatValues() {
@@ -204,24 +205,23 @@ const Form = {
 
     try {
       //verificar se is campos estão validos
-      //Form.validateFields();
+      Form.validateFields();
       //Formar os dados para salvar
-      //const transaction = Form.formatValues();
-
+      const transaction = Form.formatValues();
       //salvar
-      //Transaction.add()(transaction)
+      Transaction.add(transaction)
       //apagar os dados do fomulario
-      // Form.clearFields();
+      Form.clearFields();
       //modal fache
-
-      //console.log( Modal.getClose())
+      Modal.salveAndClose();
+      //console.log(Modal.salveAndClose())
       //Atualizar aplicação
 
     } catch (error) {
       alert(error.message)
     }
 
-    console.log(event)
+    //console.log(event)
   },
 
   submit() {
