@@ -1,24 +1,31 @@
-document.addEventListener('DOMContentLoaded', () => {
+const Modal = {
+  modal: document.querySelector('.modal-overlay'),
+  cancel: document.querySelector('.cancel'),
+  open: document.querySelector('.new'),
 
-  const model = document.querySelector('.modal-overlay')
-  const cancel = document.querySelector('.cancel')
-  const open = document.querySelector('.new')
+  getClose() {
+    return Modal.cancel.onclick = () => {
+      Modal.modal.classList.toggle('active');
+    }
+    ;
+  },
 
-  const Modal = {
-    openAndClose() {
-      //Abrir modal
-      //Adicinar a classe active ao modal
-      open.onclick = () => {
-        model.classList.toggle('active');
-      }
-      cancel.onclick = () => {
-        model.classList.toggle('active');
-      }
-    },
+  openAndClose() {
+    //Abrir modal
+    //Adicinar a classe active ao modal
+    Modal.open.onclick = () => {
+      Modal.modal.classList.toggle('active');
+    }
+    
+    Modal.cancel.onclick = () => {
+      Modal.modal.classList.toggle('active');
+    }
+  },
 
-  }
+}
 
-  Modal.openAndClose();
+Modal.openAndClose();
 
-
-})
+export {
+  Modal
+}
