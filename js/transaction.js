@@ -120,11 +120,15 @@ const Util = {
   formatAmount(value) {
 
     value = Number(value) * 100
-    //console.log(value)
-    return value
+    //outra forma de validação dos numeros
+    // value = Number(value.replace(/\,\./g),'') * 100
+    console.log(value)
+    return value;
   },
 
   formatDate(date) {
+
+    //remover - separa a data por padrão
     const splitteDate = date.split('-')
     //console.log(splitteDate)
     return `${splitteDate[2]}/${splitteDate[1]}/${splitteDate [0]}`;
