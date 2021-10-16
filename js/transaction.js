@@ -1,11 +1,11 @@
-const Modal ={
-  modal : document.querySelector('.modal-overlay'),
+const Modal = {
+  modal: document.querySelector('.modal-overlay'),
 
   openAndClose() {
     // Abrir modal
     // Adicionar a class active ao modal
     document.querySelector('.cancel').onclick = () => {
-     Modal.modal.classList.toggle('active');
+      Modal.modal.classList.toggle('active');
     }
 
     document.querySelector('.new').onclick = () => {
@@ -20,34 +20,47 @@ const Modal ={
 
 };
 
+const Storage = {
+  /* JSON.parse converte a String para um objeto ou um array
+  caso não exista ela retonarar um array vazil  */
+  get() {
+    return JSON.parse(localStorage.getItem("dev.finances:transactions")) || [];
+  },
+  //Sempre o local storage guarda uma String 
+  //dev.fanances:transactions chave do localStorage
+  set(transaction) {
+    localStorage.setItem("dev.finances:transactions", JSON.stringify(transaction))
+  }
+}
 
 //Adiciona as transações
 const Transaction = {
-  all: [{
-      description: "Luz",
-      amount: 100000,
-      date: '23/02/2021'
-    },
+   /* all: [{
+       description: "Luz",
+       amount: 100000,
+       date: '23/02/2021'
+     },
 
-    {
+     {
 
-      description: "Criação website",
-      amount: -50000,
-      date: '23/02/2021'
-    },
+       description: "Criação website",
+       amount: -50000,
+       date: '23/02/2021'
+     },
 
-    {
-      description: "Conta de Água",
-      amount: -50000,
-      date: '23/02/2021'
-    },
+     {
+       description: "Conta de Água",
+       amount: -50000,
+       date: '23/02/2021'
+     },
 
-    {
-      description: "Internet",
-      amount: -15000,
-      date: '23/02/2021'
-    },
-  ],
+     {
+       description: "Internet",
+       amount: -15000,
+       date: '23/02/2021'
+     },
+   ],  */
+  all: Storage.get(), 
 
   add(transaction) {
     Transaction.all.push(transaction);
@@ -254,6 +267,9 @@ const Form = {
   }
 }
 
+
+
+
 const App = {
   init() {
 
@@ -265,8 +281,10 @@ const App = {
     }) */
     DOM.updateBalencer();
 
+    //Inicializa ca captura de dados do formulário
     Form.submit();
 
+    Storage.set(Transaction.all)
   },
   reload() {
     DOM.clearTransctions();
