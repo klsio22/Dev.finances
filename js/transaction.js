@@ -1,6 +1,25 @@
-import {
-  Modal
-} from './openAndClose.js';
+const Modal ={
+  modal : document.querySelector('.modal-overlay'),
+
+  openAndClose() {
+    // Abrir modal
+    // Adicionar a class active ao modal
+    document.querySelector('.cancel').onclick = () => {
+     Modal.modal.classList.toggle('active');
+    }
+
+    document.querySelector('.new').onclick = () => {
+      Modal.modal.classList.toggle('active');
+    }
+
+  },
+
+  salveAndClose() {
+    Modal.modal.classList.toggle('active')
+  },
+
+};
+
 
 //Adiciona as transações
 const Transaction = {
@@ -16,7 +35,6 @@ const Transaction = {
       amount: -50000,
       date: '23/02/2021'
     },
-
 
     {
       description: "Conta de Água",
@@ -34,12 +52,12 @@ const Transaction = {
   add(transaction) {
     Transaction.all.push(transaction);
 
-    APP.reload();
+    App.reload();
   },
-
+  //remover um indice por vez
   remove(index) {
     Transaction.all.splice(index, 1);
-    APP.reload();
+    App.reload();
   },
 
   incomes() {
@@ -71,14 +89,15 @@ const DOM = {
   addTrasaction(transaction, index) {
     //console.log(transaction)
     let tr = document.createElement('tr');
-    tr.innerHTML = DOM.innerHTMLTransaction(transaction);
-
+    tr.innerHTML = DOM.innerHTMLTransaction(transaction, index);
+    tr.dataset.index = index;
     DOM.transactionsContainer.appendChild(tr)
+
     //console.log(DOM.transactionsContainer.appendChild(tr))
     //console.log(tr.innerHtml)
   },
 
-  innerHTMLTransaction(transaction) {
+  innerHTMLTransaction(transaction, index) {
     const CSSclass = transaction.amount > 0 ? "income" : "expense";
 
     const amount = Util.formatCurrency(transaction.amount);
@@ -87,8 +106,9 @@ const DOM = {
         <td class="${CSSclass}">${amount}</td>
         <td class="date">${transaction.date}</td>
         <td>
-          <img src="./assets/minus.svg" alt="Remover transação">
+          <img onclick="Transaction.remove(${index})" src="./assets/minus.svg" alt="Remover transação">
         </td>
+        
       `;
 
     return html;
@@ -108,7 +128,7 @@ const DOM = {
       .innerHTML = Util.formatCurrency(Transaction.total())
   },
 
-
+  //
   clearTransctions() {
     DOM.transactionsContainer.innerHTML = "";
   }
@@ -234,19 +254,24 @@ const Form = {
   }
 }
 
-const APP = {
+const App = {
   init() {
+
+    Modal.openAndClose();
+    //Para cada Transação
+    Transaction.all.forEach(DOM.addTrasaction);
+    /* Transaction.all.forEach((transaction,index) =>{
+      DOM.addTrasaction(transaction, index)
+    }) */
     DOM.updateBalencer();
+
     Form.submit();
-    Transaction.all.forEach((transactions) => {
-      DOM.addTrasaction(transactions)
-      //console.log(transactions)
-    })
+
   },
   reload() {
     DOM.clearTransctions();
-    APP.init();
+    App.init();
   }
 }
 
-APP.init();
+App.init();
