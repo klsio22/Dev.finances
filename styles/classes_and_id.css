@@ -131,6 +131,7 @@
 
 .input-group .help {
   opacity: 0.4;
+  padding: .3rem;
 }
 
 .input-group.actions {
