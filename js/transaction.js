@@ -1,3 +1,4 @@
+
 const Modal = {
   modal: document.querySelector('.modal-overlay'),
 
@@ -152,11 +153,10 @@ const DOM = {
 const Util = {
   formatAmount(value) {
 
-    value = Number(value) * 100
-    //outra forma de validação dos numeros
-    // value = Number(value.replace(/\,\./g),'') * 100
+    value = value * 100
     console.log(value)
-    return value;
+    console.log(Math.round(value))
+    return Math.round(value);
   },
 
   formatDate(date) {
