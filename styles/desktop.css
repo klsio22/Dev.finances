@@ -9,6 +9,10 @@
     gap: 2rem;
   }
   .modal-overlay {
-    z-index: 1;
+    z-index: 3;
+  }
+
+  footer {
+    z-index: 0;
   }
 }
